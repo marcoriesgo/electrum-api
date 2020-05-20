@@ -1,13 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Create Expense Schema
-const BudgetSchema = new Schema({
+// Create Bills Schema
+const BillSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId, 
     ref: "users"
   },
   name: {
+    type: String,
+    required: true
+  },
+  dueDate: {
     type: String,
     required: true
   },
@@ -17,4 +21,4 @@ const BudgetSchema = new Schema({
   }
 });
 
-module.exports = Budget = mongoose.model("budgets", BudgetSchema);
+module.exports = Bill = mongoose.model("bills", BillSchema);
