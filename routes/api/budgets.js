@@ -7,7 +7,7 @@ const Budget = require("../../models/Budget");
 
 router.post('/create', async (req, res) => {
     Budget.findOne({
-        category: req.body.category
+        category: req.body.name
     })
     .then(budget => {
         if (budget) {
@@ -15,7 +15,7 @@ router.post('/create', async (req, res) => {
         } else {
             const newBudget = new Budget({
                 userId: req.body.userId,
-                category: req.body.category,
+                name: req.body.name,
                 amount: req.body.amount
         
             })
