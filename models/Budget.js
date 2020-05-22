@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Create Expense Schema
+// Create Expense Schema 
 const BudgetSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId, 

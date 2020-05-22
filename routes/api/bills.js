@@ -16,6 +16,7 @@ router.post('/create', async (req, res) => {
             const newBill = new Bill({
                 userId: req.body.userId,
                 name: req.body.name,
+                categoryId: req.body.categoryId,
                 dueDate: req.body.dueDate,
                 amount: req.body.amount
             })
@@ -27,6 +28,12 @@ router.post('/create', async (req, res) => {
 
 router.get('/:id', (req, res) => {
     Bill.find({ userId: req.params.id })
+        .then(bills => res.json(bills))
+        .catch(err => console.log(err));
+})
+
+router.get('/:id/:categoryId', (req, res) => {
+    Bill.find({ userId: req.params.id, categoryId: req.params.categoryId})
         .then(bills => res.json(bills))
         .catch(err => console.log(err));
 })

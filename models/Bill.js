@@ -15,6 +15,10 @@ const BillSchema = new Schema({
     type: String,
     required: true
   },
+  categoryId: {
+    type: Number,
+    required: true
+  },
   amount: {
     type: Number,
     required: true
