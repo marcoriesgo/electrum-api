@@ -16,7 +16,8 @@ router.post('/create', async (req, res) => {
             const newInvestment = new Investment({
                 userId: req.body.userId,
                 companyName: req.body.companyName,
-                stockTag: req.body.stockTag
+                stockTag: req.body.stockTag,
+                numberOfShares: req.body.numberOfShares
         
             })
             newInvestment.save().then(investment => res.json(investment))

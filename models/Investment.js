@@ -14,6 +14,10 @@ const InvestmentSchema = new Schema({
   stockTag: {
     type: String,
     required: true
+  },
+  numberOfShares: {
+    type: String,
+    required: true
   }
 });
 
