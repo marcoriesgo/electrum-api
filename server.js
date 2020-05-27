@@ -41,6 +41,22 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 db.on('open' , ()=>{});
 
 
+// CORS middleware:
+const whitelist = [
+    "*",
+];
+  const corsOptions = {
+    origin: function(origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    }
+  };
+app.use(cors(corsOptions));
+
+app.use(cors())
 
 // DB Config
 // const db = require("./config/keys").mongoURI;
